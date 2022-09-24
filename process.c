@@ -1,10 +1,11 @@
 #include "process.h"
 #include <omp.h>
+
 void process(int N, int M, float **vector_mn, float **matrix_nn, float **result_vectors)
 {
-      omp_set_dynamic(0);      // запретить библиотеке openmp менять число потоков во время исполнения
-  omp_set_num_threads(4); // установить число потоков в 10
-
+    omp_set_dynamic(0);      // запретить библиотеке openmp менять число потоков во время исполнения
+    omp_set_num_threads(3);
+    
     int k = 0;
     #pragma omp parallel for shared(vector_mn, matrix_nn) private(k)
     for ( k=0; k < M; k++) {

@@ -4,7 +4,7 @@
 void process(int N, int M, float **vector_mn, float **matrix_nn, float **result_vectors)
 {
     omp_set_dynamic(0);      // запретить библиотеке openmp менять число потоков во время исполнения
-    omp_set_num_threads(3);
+    omp_set_num_threads(2);
     
     int k = 0;
     #pragma omp parallel for shared(vector_mn, matrix_nn) private(k)
